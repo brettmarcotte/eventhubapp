@@ -1,10 +1,26 @@
 package com.example.eventhub.Models;
 
+
+import com.fasterxml.jackson.annotation.JsonProperty;
+import org.springframework.web.bind.annotation.CrossOrigin;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RestController;
+
+@CrossOrigin
+@RestController
+@RequestMapping("/Trivia")
 public class Trivia {
 
+    @JsonProperty("location")
     private String location;
+
+    @JsonProperty("genre")
     private String genre;
+
+    @JsonProperty("date")
     private int date;
+
+    @JsonProperty("time")
     private int time;
 
     public Trivia(String location, String genre, int date, int time) {

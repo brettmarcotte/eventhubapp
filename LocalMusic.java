@@ -1,18 +1,27 @@
 package com.example.eventhub.Models;
 
+import com.fasterxml.jackson.annotation.JsonProperty;
 import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 @CrossOrigin
 @RestController
-@RequestMapping()
+@RequestMapping("/LocalMusic")
 public class LocalMusic {
 
+    @JsonProperty("location")
     private String location;
+
+    @JsonProperty("genre")
     private String genre;
+
+    @JsonProperty("date")
     private int date;
+
+    @JsonProperty("time")
     private int time;
+
 
     public LocalMusic(String location, String genre, int date, int time) {
         this.location = location;
@@ -30,10 +39,20 @@ public class LocalMusic {
         System.out.println("5. Theatres");
         System.out.println("6. Arena");
         System.out.println("7. Stadium");
-        System.out.println("8. Miscellaneous");
-
+        System.out.println("8. Other");
     }
 
+
+
+    @Override
+    public String toString() {
+        return "{" +
+                "\"location\":\"" + location + '"' +
+                ", \"genre\":\"" + genre + '"' +
+                ", \"date\":" + date +
+                ", \"time\":" + time +
+                '}';
+    }
 
     public String getLocation() {
         return location;
